@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>Recipes Details!</h2>
+<table class="table table-bordered mt-3" align="center">
+  <thead>
+    <tr>
+      <th scope="col">Sn.</th>
+      <th scope="col">Recipes name</th>
+      <th scope="col">Recipes description</th>
+      <th scope="col">Recipes image</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for r in recepie %}
+    <tr>
+      <th >{{ forloop.counter }}</th>
+      <td >{{ r.recepie_name }}</td>
+      <td >{{ r.recepie_description }}</td>
+      <td><a href="/media/{{ r.recepie_image}}" class="form-control"><img src="/media/{{ r.recepie_image}}" style="height:110px"></a></td>
+      <td><a href="update/{{r.id}}/" class="btn btn-success">Edit</a></td>
+      <td><a href="delete/{{r.id}}/" class="btn btn-danger">Delete</a></td>
+
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
